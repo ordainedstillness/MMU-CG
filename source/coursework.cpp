@@ -16,6 +16,7 @@ void keyboardInput(GLFWwindow *window);
 
 int main( void )
 {
+    //Test hi
     // =========================================================================
     // Window creation - you shouldn't need to change this code
     // -------------------------------------------------------------------------
