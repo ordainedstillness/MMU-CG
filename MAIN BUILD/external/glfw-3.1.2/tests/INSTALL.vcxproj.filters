@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\7547979eb52ab33c8515b18117562eab\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F669CACD-AC75-361F-A542-3459EF570292}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

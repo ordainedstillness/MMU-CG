@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3F49FD65-7040-3EA3-95F9-7434B428CF8F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glfw-3.1.2\include;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glew-1.13.0\include;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glm-0.9.7.1;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glfw-3.1.2\include;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glew-1.13.0\include;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glm-0.9.7.1;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glfw-3.1.2\include;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glew-1.13.0\include;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glm-0.9.7.1;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glfw-3.1.2\include;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glew-1.13.0\include;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glm-0.9.7.1;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025" "-BC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD" --check-stamp-file "C:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeCCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeCXXCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeRCCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeSystem.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\CleanDirectoryList.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\CreateLaunchers.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\ListCombinations.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\MSVCMultipleProcessCompile.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\launcher-templates\targetlauncher.cmd.in;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\launcher-templates\vcxproj.user.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025" "-BC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD" --check-stamp-file "C:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeCCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeCXXCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeRCCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeSystem.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\CleanDirectoryList.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\CreateLaunchers.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\ListCombinations.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\MSVCMultipleProcessCompile.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\launcher-templates\targetlauncher.cmd.in;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\launcher-templates\vcxproj.user.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025" "-BC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD" --check-stamp-file "C:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeCCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeCXXCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeRCCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeSystem.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\CleanDirectoryList.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\CreateLaunchers.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\ListCombinations.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\MSVCMultipleProcessCompile.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\launcher-templates\targetlauncher.cmd.in;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\launcher-templates\vcxproj.user.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025" "-BC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD" --check-stamp-file "C:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.29\Modules\Platform\WindowsPaths.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeCCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeCXXCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeRCCompiler.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\3.29.2\CMakeSystem.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\CleanDirectoryList.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\CreateLaunchers.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\ListCombinations.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\MSVCMultipleProcessCompile.cmake;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\launcher-templates\targetlauncher.cmd.in;C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\rpavlik-cmake-modules-fe2273\launcher-templates\vcxproj.user.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\ZERO_CHECK.vcxproj">
+      <Project>{1243B3DC-E972-390F-BD5D-E9D8B601D76E}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\Computer_Graphics_Coursework.vcxproj">
+      <Project>{B40A6EDD-7245-3774-9C58-7CDF090B08A8}</Project>
+      <Name>Computer_Graphics_Coursework</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\GLEW_1130.vcxproj">
+      <Project>{818C2F8C-6BDA-31DF-8008-4D79CF2FE9AD}</Project>
+      <Name>GLEW_1130</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\examples\boing.vcxproj">
+      <Project>{EBC2BCB6-045B-3A5F-9574-16A2D1267E17}</Project>
+      <Name>boing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\clipboard.vcxproj">
+      <Project>{6A012F70-9274-3AC8-929E-0F964DBBE104}</Project>
+      <Name>clipboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\cursor.vcxproj">
+      <Project>{22C2534A-8EED-3B00-9B55-F4AF77C92E68}</Project>
+      <Name>cursor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\empty.vcxproj">
+      <Project>{F77856A1-6FFD-39F8-85D5-1C45254B7401}</Project>
+      <Name>empty</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\events.vcxproj">
+      <Project>{D486B79F-C326-3BCE-AA61-64260409B584}</Project>
+      <Name>events</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\gamma.vcxproj">
+      <Project>{6FA5E9DF-64A0-3570-8B40-5C877DF19133}</Project>
+      <Name>gamma</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\examples\gears.vcxproj">
+      <Project>{C9194BBA-A9C0-39BA-BC25-630C0DA0FBB1}</Project>
+      <Name>gears</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\src\glfw.vcxproj">
+      <Project>{938D76A7-BC68-36ED-9EBD-6520F4C3F48F}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\glfwinfo.vcxproj">
+      <Project>{5DB00103-0854-3653-8C16-3255D6D9E28A}</Project>
+      <Name>glfwinfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\examples\heightmap.vcxproj">
+      <Project>{DBF09C60-02FE-325F-B8BE-77D756EC727C}</Project>
+      <Name>heightmap</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\iconify.vcxproj">
+      <Project>{898938DE-F4F4-33B8-8D2D-02FEFE457246}</Project>
+      <Name>iconify</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\joysticks.vcxproj">
+      <Project>{C84F6668-4420-395C-A53C-D4A36A12FBB9}</Project>
+      <Name>joysticks</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\monitors.vcxproj">
+      <Project>{A9E1F4FC-A409-332F-914C-61C86AC92528}</Project>
+      <Name>monitors</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\msaa.vcxproj">
+      <Project>{1FCFBB76-7042-39BF-A622-7F0879710660}</Project>
+      <Name>msaa</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\examples\particles.vcxproj">
+      <Project>{23E6CC91-93B9-366C-85F2-291E382A8701}</Project>
+      <Name>particles</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\reopen.vcxproj">
+      <Project>{B39D7166-0E00-3DB4-B6B7-F0B3EB4872CA}</Project>
+      <Name>reopen</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\sharing.vcxproj">
+      <Project>{DD8C1290-76AB-36BC-8330-DA6552E5E707}</Project>
+      <Name>sharing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\examples\simple.vcxproj">
+      <Project>{4F8105B5-9442-3640-A5D8-ECDE848EE9BF}</Project>
+      <Name>simple</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\examples\splitview.vcxproj">
+      <Project>{08D5A4B0-100E-3910-8AFB-99975BD399D9}</Project>
+      <Name>splitview</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\tearing.vcxproj">
+      <Project>{07B6614C-DAF2-307A-A1FC-D08294E1F428}</Project>
+      <Name>tearing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\threads.vcxproj">
+      <Project>{5F9E4255-8FE4-3C5F-9E9B-9751BD360DC8}</Project>
+      <Name>threads</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\title.vcxproj">
+      <Project>{51396DDF-E8F6-3F95-9717-1CB1A6D1E1BA}</Project>
+      <Name>title</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\examples\wave.vcxproj">
+      <Project>{9433E0E3-57F7-3E2F-B0F8-4804A9C356E7}</Project>
+      <Name>wave</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\external\glfw-3.1.2\tests\windows.vcxproj">
+      <Project>{67D18D65-2945-3467-807F-A791C2135C87}</Project>
+      <Name>windows</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
