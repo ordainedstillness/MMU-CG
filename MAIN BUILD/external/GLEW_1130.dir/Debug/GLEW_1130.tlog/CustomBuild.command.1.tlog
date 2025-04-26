@@ -1,0 +1,10 @@
+^C:\USERS\THEFU\DOCUMENTS\COMPUTER GRAPHICS COURSEWORK 2025\COMPUTER-GRAPHICS-COURSEWORK-2025\EXTERNAL\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025" "-BC:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD" --check-stamp-file "C:/Users/thefu/Documents/Computer Graphics Coursework 2025/Computer-Graphics-Coursework-2025/MAIN BUILD/external/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
