@@ -62,6 +62,30 @@ int main( void )
     // Ensure we can capture keyboard inputs
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
+    // Define vertices
+    const float vertices[] = {
+        // x     y     z
+        -0.5f, -0.5f, 0.0f,
+         0.5f, -0.5f, 0.0f,
+         0.0f,  0.5f, 0.0f
+    };
+
+    // Create the Vertex Array Object (VAO)
+    unsigned int VAO;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+
+    // Compile shader program
+    unsigned int shaderID = LoadShaders("vertexShader.glsl", "fragmentShader.glsl");
+    // Use the shader program
+    glUseProgram(shaderID);
+
+    // Create Vertex Buffer Object (VBO)
+    unsigned int VBO;
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
@@ -72,13 +96,29 @@ int main( void )
         glClearColor(0.2f, 0.2f, 0.2f, 0.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
+        // Send the VBO to the shaders
+        glEnableVertexAttribArray(0);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glVertexAttribPointer(0,         // attribute
+            3,         // size
+            GL_FLOAT,  // type
+            GL_FALSE,  // normalise?
+            0,         // stride
+            (void*)0); // offset
 
+        // Draw the triangle
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDisableVertexAttribArray(0);
 
         // Swap buffers
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-    
+    // Cleanup
+    glDeleteBuffers(1, &VBO);
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteProgram(shaderID);
+
     // Close OpenGL window and terminate GLFW
     glfwTerminate();
     return 0;
