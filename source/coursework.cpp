@@ -171,6 +171,13 @@ int main( void )
         glDisableVertexAttribArray(0);
         glDisableVertexAttribArray(1);
 
+        glm::mat4 translate = Maths::translate(glm::vec3(0.0f, 0.0f, 0.0f)); //X,Y,Z
+
+        // Send the transformation matrix to the shader
+        glm::mat4 transformation = translate;
+        unsigned int transformationID = glGetUniformLocation(shaderID, "transformation");
+        glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);
+
         // Swap buffers
         glfwSwapBuffers(window);
         glfwPollEvents();
