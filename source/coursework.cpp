@@ -62,29 +62,83 @@ int main( void )
     // Ensure we can capture keyboard inputs
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
-    // Define vertices
-    const float vertices[] = {
-        // x     y     z
-        -0.5f, -0.5f, 0.0f,
-         0.5f, -0.5f, 0.0f,
-         0.0f,  0.5f, 0.0f
+    // Define vertex positions
+    static const float vertices[] = {
+        // x     y     z      index
+        -0.5f, -0.5f, 0.0f,  // 0       3 -- 2
+         0.5f, -0.5f, 0.0f,  // 1       |  / |  
+         0.5f,  0.5f, 0.0f,  // 2       | /  |
+        -0.5f,  0.5f, 0.0f   // 3       0 -- 1
     };
 
+    // Define texture coordinates
+    static const float uv[] = {
+        // u    v      index
+        0.0f,  0.0f,  // 0
+        1.0f,  0.0f,  // 1
+        1.0f,  1.0f,  // 2
+        0.0f,  1.0f,  // 3
+    };
+
+    // Define indices
+    static const unsigned int indices[] = {
+        0, 1, 2,  // lower-right triangle
+        0, 2, 3   // upper-left triangle
+    };
     // Create the Vertex Array Object (VAO)
     unsigned int VAO;
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
-
-    // Compile shader program
-    unsigned int shaderID = LoadShaders("vertexShader.glsl", "fragmentShader.glsl");
-    // Use the shader program
-    glUseProgram(shaderID);
 
     // Create Vertex Buffer Object (VBO)
     unsigned int VBO;
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    // Create texture buffer
+    unsigned int uvBuffer;
+    glGenBuffers(1, &uvBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(uv), uv, GL_STATIC_DRAW);
+
+    // Create Element Buffer Object (EBO)
+    unsigned int EBO;
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    // Compile shader program
+    unsigned int shaderID = LoadShaders("vertexShader.glsl", "fragmentShader.glsl");
+    // Use the shader program
+    glUseProgram(shaderID);
+
+    // Create and bind texture
+    unsigned int texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    // Bind the texture to the VAO
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glBindVertexArray(VAO);
+
+    // Load texture image from file
+    const char* path = "../assets/dirtblock.jpg";
+    int width, height, nChannels;
+    stbi_set_flip_vertically_on_load(true);
+    unsigned char* data = stbi_load(path, &width, &height, &nChannels, 0);
+
+    if (data)
+        std::cout << "Texture loaded." << std::endl;
+    else
+        std::cout << "Texture not loaded. Check the path." << std::endl;
+
+    // Specify 2D texture
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    // Free the image from the memory
+    stbi_image_free(data);
 
     // Render loop
     while (!glfwWindowShouldClose(window))
@@ -106,9 +160,16 @@ int main( void )
             0,         // stride
             (void*)0); // offset
 
-        // Draw the triangle
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        // Send the UV buffer to the shaders
+        glEnableVertexAttribArray(1);
+        glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
+        // Draw the triangles
+        glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int), GL_UNSIGNED_INT, 0);
+
         glDisableVertexAttribArray(0);
+        glDisableVertexAttribArray(1);
 
         // Swap buffers
         glfwSwapBuffers(window);
