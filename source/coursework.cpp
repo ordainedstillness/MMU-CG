@@ -171,14 +171,18 @@ int main( void )
         glDisableVertexAttribArray(0);
         glDisableVertexAttribArray(1);
 
-        //Translation matrix
+        //Translation matrix 
         glm::mat4 translate = Maths::translate(glm::vec3(0.0f, 0.0f, 0.0f)); //X,Y,Z
 
-        //Scale matrix
-        glm::mat4 scale = Maths::scale(glm::vec3(0.4f, 0.3f, 1.0f));; //X,Y,Z
+        //Scale matrix (1.0 = No change to size)  
+        glm::mat4 scale = Maths::scale(glm::vec3(1.0f, 1.0f, 1.0f));; //X,Y,Z 
+
+        //Rotation matrix
+        float angle = Maths::radians(45.0f); 
+        glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 0.0f, 1.0f)); //X,Y,Z 
 
         // Send the specified matrix to the shader (translate, scale and rotation)
-        glm::mat4 transformation = scale;
+        glm::mat4 transformation = rotate;
         unsigned int transformationID = glGetUniformLocation(shaderID, "transformation");
         glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);
 
