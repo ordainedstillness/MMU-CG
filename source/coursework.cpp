@@ -59,31 +59,57 @@ int main( void )
     // End of window creation
     // =========================================================================
     
+
     // Ensure we can capture keyboard inputs
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
-    // Define vertex positions
-    static const float vertices[] = {
-        // x     y     z      index
-        -0.5f, -0.5f, 0.0f,  // 0       3 -- 2
-         0.5f, -0.5f, 0.0f,  // 1       |  / |  
-         0.5f,  0.5f, 0.0f,  // 2       | /  |
-        -0.5f,  0.5f, 0.0f   // 3       0 -- 1
+    // Define cube object
+    // Define vertices
+    const float vertices[] = {
+        // front
+        -1.0f, -1.0f,  1.0f,    //              + ------ +
+         1.0f, -1.0f,  1.0f,    //             /|       /|
+         1.0f,  1.0f,  1.0f,    //   y        / |      / |
+        -1.0f, -1.0f,  1.0f,    //   |       + ------ +  |
+         1.0f,  1.0f,  1.0f,    //   + - x   |  + ----|- +
+        -1.0f,  1.0f,  1.0f,    //  /        | /      | /
+        // right                // z         |/       |/
+         1.0f, -1.0f,  1.0f,    //           + ------ +
+         1.0f, -1.0f, -1.0f,
+         1.0f,  1.0f, -1.0f,
+         1.0f, -1.0f,  1.0f,
+         1.0f,  1.0f, -1.0f,
+         1.0f,  1.0f,  1.0f,
+         // etc.
     };
 
     // Define texture coordinates
-    static const float uv[] = {
-        // u    v      index
-        0.0f,  0.0f,  // 0
-        1.0f,  0.0f,  // 1
-        1.0f,  1.0f,  // 2
-        0.0f,  1.0f,  // 3
+    const float uv[] = {
+        // front
+        0.0f, 0.0f,     // vertex coordinates are the same for each side
+        1.0f, 0.0f,     // of the cube so repeat every six vertices
+        1.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        // right
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        // etc.
     };
 
     // Define indices
-    static const unsigned int indices[] = {
-        0, 1, 2,  // lower-right triangle
-        0, 2, 3   // upper-left triangle
+    unsigned int indices[] = {
+        0,   1,  2,  3,  4,  5,     // front
+        6,   7,  8,  9, 10, 11,     // right
+        12, 13, 14, 15, 16, 17,     // back
+        18, 19, 20, 21, 22, 23,     // left
+        24, 25, 26, 27, 28, 29,     // bottom
+        30, 31, 32, 33, 34, 35      // top
     };
     // Create the Vertex Array Object (VAO)
     unsigned int VAO;
@@ -165,26 +191,45 @@ int main( void )
         glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
+        //Translation matrix 
+        //glm::mat4 translate = Maths::translate(glm::vec3(0.0f, 0.0f, 0.0f)); //X,Y,Z
+
+        //Scale matrix (1.0 = No change to size)  
+        //glm::mat4 scale = Maths::scale(glm::vec3(1.0f, 1.0f, 1.0f));; //X,Y,Z 
+
+        //Rotation matrix
+        //float angle = Maths::radians(45.0f);
+        //glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 0.0f, 1.0f)); //X,Y,Z 
+
+        // Send the specified matrix to the shader (translate, scale and rotation)
+        //glm::mat4 transformation = translate;
+        //unsigned int transformationID = glGetUniformLocation(shaderID, "transformation");
+        //glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);
+
+        // Calculate the model matrix
+        float angle = Maths::radians(glfwGetTime() * 360.0f / 3.0f);
+        glm::mat4 translate = Maths::translate(glm::vec3(0.0f, 0.0f, -2.0f));
+        glm::mat4 scale = Maths::scale(glm::vec3(0.5f, 0.5f, 0.5f));
+        glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 1.0f, 0.0f));
+        glm::mat4 model = translate * rotate * scale;
+
+        // Calculate the view matrix
+        glm::mat4 view = glm::lookAt(glm::vec3(1.0f, 1.0f, 1.0f),  // eye
+            glm::vec3(0.0f, 0.0f, -2.0f), // target
+            glm::vec3(0.0f, 1.0f, 0.0f)); // worldUp
+
+        // Calculate orthographic projection matrix
+        glm::mat4 projection = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 0.0f, 10.0f);
+
+        // Send MVP matrix to the vertex shader
+        glm::mat4 MVP = projection * view * model;
+        glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
+
         // Draw the triangles
         glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int), GL_UNSIGNED_INT, 0);
 
         glDisableVertexAttribArray(0);
         glDisableVertexAttribArray(1);
-
-        //Translation matrix 
-        glm::mat4 translate = Maths::translate(glm::vec3(0.0f, 0.0f, 0.0f)); //X,Y,Z
-
-        //Scale matrix (1.0 = No change to size)  
-        glm::mat4 scale = Maths::scale(glm::vec3(1.0f, 1.0f, 1.0f));; //X,Y,Z 
-
-        //Rotation matrix
-        float angle = Maths::radians(45.0f); 
-        glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 0.0f, 1.0f)); //X,Y,Z 
-
-        // Send the specified matrix to the shader (translate, scale and rotation)
-        glm::mat4 transformation = translate;
-        unsigned int transformationID = glGetUniformLocation(shaderID, "transformation");
-        glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);
 
         // Swap buffers
         glfwSwapBuffers(window);
