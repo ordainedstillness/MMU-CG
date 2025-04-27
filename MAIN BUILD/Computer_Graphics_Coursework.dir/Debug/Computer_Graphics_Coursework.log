@@ -1,2 +1,28 @@
 ﻿  coursework.cpp
-  Computer_Graphics_Coursework.vcxproj -> C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\Debug\Computer_Graphics_Coursework.exe
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(195,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(202,31): error C2039: 'lookAt': is not a member of 'glm'
+      C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glm-0.9.7.1\glm\gtx\io.inl(36,11):
+      see declaration of 'glm'
+  
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(202,31): error C3861: 'lookAt': identifier not found
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(207,37): error C2039: 'ortho': is not a member of 'glm'
+      C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\external\glm-0.9.7.1\glm\gtx\io.inl(36,11):
+      see declaration of 'glm'
+  
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(207,37): error C3861: 'ortho': identifier not found
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(220,19): error C2374: 'translate': redefinition; multiple initialization
+      C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(196,19):
+      see declaration of 'translate'
+  
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(223,19): error C2374: 'scale': redefinition; multiple initialization
+      C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(197,19):
+      see declaration of 'scale'
+  
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(226,15): error C2374: 'angle': redefinition; multiple initialization
+      C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(195,15):
+      see declaration of 'angle'
+  
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(227,19): error C2374: 'rotate': redefinition; multiple initialization
+      C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(198,19):
+      see declaration of 'rotate'
+  
