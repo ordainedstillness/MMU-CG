@@ -171,10 +171,14 @@ int main( void )
         glDisableVertexAttribArray(0);
         glDisableVertexAttribArray(1);
 
+        //Translation matrix
         glm::mat4 translate = Maths::translate(glm::vec3(0.0f, 0.0f, 0.0f)); //X,Y,Z
 
-        // Send the transformation matrix to the shader
-        glm::mat4 transformation = translate;
+        //Scale matrix
+        glm::mat4 scale = Maths::scale(glm::vec3(0.4f, 0.3f, 1.0f));; //X,Y,Z
+
+        // Send the specified matrix to the shader (translate, scale and rotation)
+        glm::mat4 transformation = scale;
         unsigned int transformationID = glGetUniformLocation(shaderID, "transformation");
         glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);
 
