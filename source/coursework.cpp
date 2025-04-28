@@ -82,13 +82,40 @@ int main( void )
          1.0f, -1.0f,  1.0f,
          1.0f,  1.0f, -1.0f,
          1.0f,  1.0f,  1.0f,
-         // etc.
+         // back
+          1.0f, -1.0f, -1.0f,
+         -1.0f, -1.0f, -1.0f,
+         -1.0f,  1.0f, -1.0f,
+          1.0f, -1.0f, -1.0f,
+         -1.0f,  1.0f, -1.0f,
+          1.0f,  1.0f, -1.0f,
+          // left
+          -1.0f, -1.0f, -1.0f,
+          -1.0f, -1.0f,  1.0f,
+          -1.0f,  1.0f,  1.0f,
+          -1.0f, -1.0f, -1.0f,
+          -1.0f,  1.0f,  1.0f,
+          -1.0f,  1.0f, -1.0f,
+          // bottom
+          -1.0f, -1.0f, -1.0f,
+           1.0f, -1.0f, -1.0f,
+           1.0f, -1.0f,  1.0f,
+          -1.0f, -1.0f, -1.0f,
+           1.0f, -1.0f,  1.0f,
+          -1.0f, -1.0f,  1.0f,
+          // top
+          -1.0f,  1.0f,  1.0f,
+           1.0f,  1.0f,  1.0f,
+           1.0f,  1.0f, -1.0f,
+          -1.0f,  1.0f,  1.0f,
+           1.0f,  1.0f, -1.0f,
+          -1.0f,  1.0f, -1.0f,
     };
 
     // Define texture coordinates
     const float uv[] = {
         // front
-        0.0f, 0.0f,     // vertex coordinates are the same for each side
+        0.0f, 0.0f,     // vertex co-ordinates are the same for each side
         1.0f, 0.0f,     // of the cube so repeat every six vertices
         1.0f, 1.0f,
         0.0f, 0.0f,
@@ -101,7 +128,34 @@ int main( void )
         0.0f, 0.0f,
         1.0f, 1.0f,
         0.0f, 1.0f,
-        // etc.
+        // back
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        // left
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        // bottom
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
+        // top
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 1.0f,
+        0.0f, 1.0f,
     };
 
     // Define indices
