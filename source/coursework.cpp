@@ -14,6 +14,13 @@
 // Function prototypes
 void keyboardInput(GLFWwindow *window);
 
+// Create camera object
+Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+
+// Frame timer
+float previousTime = 0.0f;    // time of previous iteration of the loop
+float deltaTime = 0.0f;    // time elapsed since last iteration of the loop
+
 int main( void )
 {
     //Test hi
@@ -225,6 +232,11 @@ int main( void )
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
+        // Update timer
+        float time = glfwGetTime();
+        deltaTime = time - previousTime;
+        previousTime = time;
+
         // Get inputs
         keyboardInput(window);
         
@@ -234,47 +246,24 @@ int main( void )
         // Send the VBO to the shaders
         glEnableVertexAttribArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glVertexAttribPointer(0,         // attribute
-            3,         // size
-            GL_FLOAT,  // type
-            GL_FALSE,  // normalise?
-            0,         // stride
-            (void*)0); // offset
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0); 
 
         // Send the UV buffer to the shaders
         glEnableVertexAttribArray(1);
         glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
-        //Translation matrix 
-        //glm::mat4 translate = Maths::translate(glm::vec3(0.0f, 0.0f, 0.0f)); //X,Y,Z
-
-        //Scale matrix (1.0 = No change to size)  
-        //glm::mat4 scale = Maths::scale(glm::vec3(1.0f, 1.0f, 1.0f));; //X,Y,Z 
-
-        //Rotation matrix
-        //float angle = Maths::radians(45.0f);
-        //glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 0.0f, 1.0f)); //X,Y,Z 
-
-        // Send the specified matrix to the shader (translate, scale and rotation)
-        //glm::mat4 transformation = translate;
-        //unsigned int transformationID = glGetUniformLocation(shaderID, "transformation");
-        //glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);
-
         // Calculate the model matrix
-        float angle = Maths::radians(glfwGetTime() * 360.0f / 3.0f);
+        //float angle = Maths::radians(glfwGetTime() * 360.0f / 3.0f);
         glm::mat4 translate = Maths::translate(glm::vec3(0.0f, 0.0f, -2.0f));
         glm::mat4 scale = Maths::scale(glm::vec3(0.5f, 0.5f, 0.5f));
-        glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 1.0f, 0.0f));
-        glm::mat4 model = translate * rotate * scale;
+        //glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 1.0f, 0.0f));
+        glm::mat4 model = translate * scale;
 
-        // Calculate the view matrix
-        glm::mat4 view = glm::lookAt(glm::vec3(1.0f, 1.0f, 1.0f),  // eye
-            glm::vec3(0.0f, 0.0f, -2.0f), // target
-            glm::vec3(0.0f, 1.0f, 0.0f)); // worldUp
-
-        // Calculate orthographic projection matrix
-        glm::mat4 projection = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 0.0f, 10.0f);
+        // Calculate view and projection matrices
+        camera.calculateMatrices();
+        glm::mat4 view = camera.view;
+        glm::mat4 projection = camera.projection;
 
         // Send MVP matrix to the vertex shader
         glm::mat4 MVP = projection * view * model;
@@ -300,8 +289,21 @@ int main( void )
     return 0;
 }
 
-void keyboardInput(GLFWwindow *window)
+void keyboardInput(GLFWwindow* window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+    // Move the camera using WSAD keys
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        camera.eye += 5.0f * deltaTime * camera.front;
+
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera.eye -= 5.0f * deltaTime * camera.front;
+
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera.eye -= 5.0f * deltaTime * camera.right;
+
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera.eye += 5.0f * deltaTime * camera.right;
 }
