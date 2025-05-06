@@ -1,3 +1,4 @@
 ﻿  coursework.cpp
-C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(237,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(274,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\source\coursework.cpp(308,27): warning C4018: '<': signed/unsigned mismatch
   Computer_Graphics_Coursework.vcxproj -> C:\Users\thefu\Documents\Computer Graphics Coursework 2025\Computer-Graphics-Coursework-2025\MAIN BUILD\Debug\Computer_Graphics_Coursework.exe

@@ -22,6 +22,16 @@ Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 float previousTime = 0.0f;    // time of previous iteration of the loop
 float deltaTime = 0.0f;    // time elapsed since last iteration of the loop
 
+// Object struct
+struct Object
+{
+    glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 rotation = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
+    float angle = 0.0f;
+    std::string name;
+};
+
 int main( void )
 {
     //Test hi
@@ -230,6 +240,32 @@ int main( void )
     // Free the image from the memory
     stbi_image_free(data);
 
+    // Cube positions
+    glm::vec3 positions[] = {
+        glm::vec3(-1.0f,  0.0f, -1.0f),
+        glm::vec3(0.0f,  0.0f, -1.0f),
+        glm::vec3(1.0f,  0.0f, -1.0f),
+        glm::vec3(-1.0f,  0.0f,  0.0f),
+        glm::vec3(0.0f,  0.0f,  0.0f),
+        glm::vec3(1.0f,  0.0f,  0.0f),
+        glm::vec3(-1.0f,  0.0f,  1.0f),
+        glm::vec3(0.0f,  0.0f,  1.0f),
+        glm::vec3(1.0f,  0.0f,  1.0f)
+    };
+
+    // Add cubes to objects vector
+    std::vector<Object> objects;
+    Object object;
+    object.name = "cube";
+    for (unsigned int i = 0; i < 10; i++)
+    {
+        object.position = positions[i];
+        object.rotation = glm::vec3(1.0f, 1.0f, 1.0f);
+        object.scale = glm::vec3(0.5f, 0.5f, 0.5f);
+        object.angle = Maths::radians(20.0f * i);
+        objects.push_back(object);
+    }
+
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
@@ -263,13 +299,29 @@ int main( void )
         glm::mat4 model = translate * scale;
 
         // Calculate view and projection matrices
+        camera.eye = glm::vec3(0.0f, 0.0f, 5.0f);
+        camera.target = objects[0].position;
         camera.calculateMatrices();
-        glm::mat4 view = camera.view;
-        glm::mat4 projection = camera.projection;
 
-        // Send MVP matrix to the vertex shader
-        glm::mat4 MVP = projection * view * model;
-        glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
+        // Loop through cubes and draw each one
+        for (int i = 0; i < static_cast<unsigned int>(objects.size()); i++)
+        {
+            // Calculate the model matrix
+            glm::mat4 translate = Maths::translate(objects[i].position);
+            glm::mat4 scale = Maths::scale(objects[i].scale);
+            //glm::mat4 rotate = Maths::rotate(objects[i].angle, objects[i].rotation);
+            glm::mat4 model = translate * scale;
+
+            // Calculate the MVP matrix
+            glm::mat4 MVP = camera.projection * camera.view * model;
+
+            // Send MVP matrix to the vertex shader
+            glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
+
+            // Draw the triangles
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+            glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int), GL_UNSIGNED_INT, 0);
+        }
 
         // Draw the triangles
         glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int), GL_UNSIGNED_INT, 0);
