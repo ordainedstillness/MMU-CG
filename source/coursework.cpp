@@ -299,8 +299,7 @@ int main( void )
         glm::mat4 model = translate * scale;
 
         // Calculate view and projection matrices
-        camera.eye = glm::vec3(0.0f, 0.0f, 5.0f);
-        camera.target = objects[0].position;
+        camera.target = camera.eye + camera.front;
         camera.calculateMatrices();
 
         // Loop through cubes and draw each one
@@ -309,7 +308,6 @@ int main( void )
             // Calculate the model matrix
             glm::mat4 translate = Maths::translate(objects[i].position);
             glm::mat4 scale = Maths::scale(objects[i].scale);
-            //glm::mat4 rotate = Maths::rotate(objects[i].angle, objects[i].rotation);
             glm::mat4 model = translate * scale;
 
             // Calculate the MVP matrix
