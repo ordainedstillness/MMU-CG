@@ -252,7 +252,7 @@ int main( void )
         glm::vec3(0.0f, 0.0f,  1.0f),
         glm::vec3(1.0f, 0.0f,  1.0f),
 
-        // Second 3x3 grid 
+        // Second 3x3 grid
         glm::vec3(2.0f, 0.0f, -1.0f),
         glm::vec3(3.0f, 0.0f, -1.0f),
         glm::vec3(4.0f, 0.0f, -1.0f),
@@ -261,8 +261,20 @@ int main( void )
         glm::vec3(4.0f, 0.0f,  0.0f),
         glm::vec3(2.0f, 0.0f,  1.0f),
         glm::vec3(3.0f, 0.0f,  1.0f),
-        glm::vec3(4.0f, 0.0f,  1.0f)
+        glm::vec3(4.0f, 0.0f,  1.0f),
+
+        // Third 3x3 grid
+        glm::vec3(2.0f, 0.0f,  2.0f),
+        glm::vec3(3.0f, 0.0f,  2.0f),
+        glm::vec3(4.0f, 0.0f,  2.0f),
+        glm::vec3(2.0f, 0.0f,  3.0f),
+        glm::vec3(3.0f, 0.0f,  3.0f),
+        glm::vec3(4.0f, 0.0f,  3.0f),
+        glm::vec3(2.0f, 0.0f,  4.0f),
+        glm::vec3(3.0f, 0.0f,  4.0f),
+        glm::vec3(4.0f, 0.0f,  4.0f)
     };
+
 
 
 
@@ -270,7 +282,7 @@ int main( void )
     std::vector<Object> objects;
     Object object;
     object.name = "cube";
-    for (unsigned int i = 0; i < 20; i++)
+    for (unsigned int i = 0; i < 27; i++)
     {
         object.position = positions[i];
         object.rotation = glm::vec3(1.0f, 1.0f, 1.0f);
