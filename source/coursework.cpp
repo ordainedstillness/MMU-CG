@@ -240,24 +240,37 @@ int main( void )
     // Free the image from the memory
     stbi_image_free(data);
 
-    // Cube positions
     glm::vec3 positions[] = {
-        glm::vec3(-1.0f,  0.0f, -1.0f),
-        glm::vec3(0.0f,  0.0f, -1.0f),
-        glm::vec3(1.0f,  0.0f, -1.0f),
-        glm::vec3(-1.0f,  0.0f,  0.0f),
-        glm::vec3(0.0f,  0.0f,  0.0f),
-        glm::vec3(1.0f,  0.0f,  0.0f),
-        glm::vec3(-1.0f,  0.0f,  1.0f),
-        glm::vec3(0.0f,  0.0f,  1.0f),
-        glm::vec3(1.0f,  0.0f,  1.0f)
+        // First 3x3 grid
+        glm::vec3(-1.0f, 0.0f, -1.0f),
+        glm::vec3(0.0f, 0.0f, -1.0f),
+        glm::vec3(1.0f, 0.0f, -1.0f),
+        glm::vec3(-1.0f, 0.0f,  0.0f),
+        glm::vec3(0.0f, 0.0f,  0.0f),
+        glm::vec3(1.0f, 0.0f,  0.0f),
+        glm::vec3(-1.0f, 0.0f,  1.0f),
+        glm::vec3(0.0f, 0.0f,  1.0f),
+        glm::vec3(1.0f, 0.0f,  1.0f),
+
+        // Second 3x3 grid 
+        glm::vec3(2.0f, 0.0f, -1.0f),
+        glm::vec3(3.0f, 0.0f, -1.0f),
+        glm::vec3(4.0f, 0.0f, -1.0f),
+        glm::vec3(2.0f, 0.0f,  0.0f),
+        glm::vec3(3.0f, 0.0f,  0.0f),
+        glm::vec3(4.0f, 0.0f,  0.0f),
+        glm::vec3(2.0f, 0.0f,  1.0f),
+        glm::vec3(3.0f, 0.0f,  1.0f),
+        glm::vec3(4.0f, 0.0f,  1.0f)
     };
+
+
 
     // Add cubes to objects vector
     std::vector<Object> objects;
     Object object;
     object.name = "cube";
-    for (unsigned int i = 0; i < 10; i++)
+    for (unsigned int i = 0; i < 20; i++)
     {
         object.position = positions[i];
         object.rotation = glm::vec3(1.0f, 1.0f, 1.0f);
