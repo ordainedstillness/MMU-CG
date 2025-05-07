@@ -16,7 +16,7 @@ void keyboardInput(GLFWwindow *window);
 void mouseInput(GLFWwindow* window);
 
 // Create camera object (Eye,target)
-Camera camera(glm::vec3(0.0f, 1.5f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+Camera camera(glm::vec3(0.0f, 1.5f, 10.0f), glm::vec3(0.0f, -10.0f, 0.0f));
 
 // Frame timer
 float previousTime = 0.0f;    // time of previous iteration of the loop
